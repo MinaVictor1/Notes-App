@@ -39,7 +39,7 @@ class Message {
             .doc(id)
             .delete();
 
-        GoRouter.of(context).pushReplacement(Approute.kHomePage);
+        GoRouter.of(context).go(Approute.kHomePage);
       },
     ).show();
   }

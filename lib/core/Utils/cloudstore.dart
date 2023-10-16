@@ -27,10 +27,10 @@ class CloudStore {
 
   Future<void> editNote(String documentId, String newTitle, String newNote,
       BuildContext context) {
-    return notesCollection.doc(documentId).update({
+    return notesCollection.doc(documentId).set({
       'title': newTitle,
       'note': newNote,
-    }).then((value) {
+    }, SetOptions(merge: true)).then((value) {
       print("Note Updated");
       Message().sendMessage(context, 'Note Updated');
       GoRouter.of(context).pushReplacement(Approute.kHomePage);
